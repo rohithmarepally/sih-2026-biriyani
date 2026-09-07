@@ -52,6 +52,20 @@ uvicorn app.main:app --reload --port 8000
 
 The API is available at http://localhost:8000 and its OpenAPI docs at http://localhost:8000/docs.
 
+### Compliance check
+
+Upload a mock PDF containing a GSTIN and PAN to compare the extracted values with
+the seeded `tax_registrations` PostgreSQL table:
+
+```bash
+curl -X POST http://localhost:8000/api/compliance/check \
+  -F "file=@mock-registration.pdf;type=application/pdf"
+```
+
+The seeded matching record is `GSTIN=29ABCDE1234F1Z5` and `PAN=ABCDE1234F`.
+The response includes the extracted identifiers, individual match flags, and a
+`compliance_score` from 0 to 100.
+
 ### 3. Run the Next.js frontend
 
 ```bash
