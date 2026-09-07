@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Biriyani | Full-stack starter",
-  description: "A Next.js and FastAPI full-stack starter project."
+  title: "Procurewise | Procurement dashboard",
+  description: "Review bidder compliance and procurement risk."
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
